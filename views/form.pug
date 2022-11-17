@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  br
+  h4 Message
+  <form method="POST" action="/new" >
+    <textarea placeholder="Type your message" rows="4" cols="50" name="message"></textarea>
+    br
+    <label>Name</label><input type="text" placeholder="John" name="name"/>
+    br
+    <button type="submit">Submit</button>
+  </form>
