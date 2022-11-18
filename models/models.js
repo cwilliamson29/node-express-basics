@@ -14,5 +14,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.author = require("./author.model")(sequelize, Sequelize);
+db.book = require("./book.model")(sequelize, Sequelize);
+db.bookInstance = require("./bookinstance.model")(sequelize, Sequelize);
 
 module.exports = db;

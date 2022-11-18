@@ -40,7 +40,6 @@ app.use(function (err, req, res, next) {
     res.render("error");
 });
 
-//const db = require("./models/models");
 db.sequelize
     .sync()
     .then(() => {
