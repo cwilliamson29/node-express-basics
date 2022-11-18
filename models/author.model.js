@@ -1,18 +1,18 @@
-const { DataTypes } = require("sequelize");
-
-module.exports = function AuthorModel(sequelize) {
-    const attributes = {
-        firstName: { type: DataTypes.STRING, allowNull: false },
-        lastName: { type: DataTypes.STRING, allowNull: false },
-        DOB: { type: DataTypes.DATE, allowNull: false },
-        DOD: { type: DataTypes.DATE, allowNull: false },
-    };
-
-    const options = {
-        defaultScope: {
-            attributes: {},
+module.exports = (sequelize, Sequelize) => {
+    const Author = sequelize.define("Author", {
+        firstName: { type: Sequelize.STRING, allowNull: false },
+        lastName: { type: Sequelize.STRING, allowNull: false },
+        DOB: { type: Sequelize.DATE, allowNull: false },
+        DOD: { type: Sequelize.DATE, allowNull: false },
+        fullName: {
+            type: Sequelize.VIRTUAL,
+            get() {
+                return `${this.firstName} ${this.lastName}`;
+            },
+            set(value) {
+                throw new Error("Do not try to set the `fullName` value!");
+            },
         },
-    };
-
-    return sequelize.define("user", attributes, options);
+    });
+    return Author;
 };
