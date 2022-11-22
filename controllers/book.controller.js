@@ -45,8 +45,13 @@ exports.index = (req, res) => {
     );
 };
 
-exports.book_list = (req, res) => {
-    res.send("NOT IMPLEMENTED: book List");
+exports.book_list = async (req, res) => {
+    const books = await models.book.findAll({
+        order: [["author", "DESC"]],
+    });
+
+    //Successful, so render
+    res.render("book_list", { title: "Book List", book_list: books });
 };
 
 exports.book_detail = (req, res) => {
