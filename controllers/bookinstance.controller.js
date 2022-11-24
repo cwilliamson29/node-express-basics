@@ -1,7 +1,14 @@
-const BookInstance = require("../models/bookinstance.model");
+const models = require("../models/models");
 
-exports.bookinstance_list = (req, res) => {
-    res.send("NOT IMPLEMENTED: bookinstance List");
+const async = require("async");
+
+exports.bookinstance_list = async (req, res) => {
+    const books = await models.bookInstance.findAll({
+        order: [["book", "DESC"]],
+    });
+
+    //Successful, so render
+    res.render("bookinstance_list", { title: "Book Instance List", bookinstance_list: books });
 };
 
 exports.bookinstance_detail = (req, res) => {

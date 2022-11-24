@@ -1,7 +1,3 @@
-const sBook = require("../models/book.model");
-const sAuthor = require("../models/author.model");
-const sGenre = require("../models/genre.model");
-const sBookInstance = require("../models/bookinstance.model");
 const models = require("../models/models");
 
 const async = require("async");
