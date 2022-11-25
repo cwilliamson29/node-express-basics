@@ -13,6 +13,15 @@ module.exports = (sequelize, Sequelize) => {
                 throw new Error("Do not try to set the `fullName` value!");
             },
         },
+        url: {
+            type: Sequelize.VIRTUAL,
+            get() {
+                return `/catalog/author/${this._id}`;
+            },
+            set(value) {
+                throw new Error("Do not try to set URL");
+            },
+        },
     });
     return Author;
 };
