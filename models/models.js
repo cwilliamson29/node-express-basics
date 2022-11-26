@@ -8,7 +8,10 @@ const host = process.env.DB;
 const dbname = process.env.DBNAME;
 const PORT = process.env.PORT;
 
-const sequelize = new Sequelize(dbname, user, pass, { host: host, dialect: "mysql" });
+const sequelize = new Sequelize(dbname, user, pass, {
+  host: host,
+  dialect: "mysql",
+});
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
