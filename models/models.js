@@ -21,4 +21,6 @@ db.book = require("./book.model")(sequelize, Sequelize);
 db.bookInstance = require("./bookinstance.model")(sequelize, Sequelize);
 db.genre = require("./genre.model")(sequelize, Sequelize);
 
+db.genre.hasMany(db.book);
+
 module.exports = db;
